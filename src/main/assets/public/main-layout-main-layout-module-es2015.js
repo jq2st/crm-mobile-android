@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n<ion-menu side=\"start\" menuId=\"first\" contentId=\"main\">\r\n  <ion-header>\r\n    <ion-toolbar color=\"primary\">\r\n      <ion-title>Menu</ion-title>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n  <ion-content>\r\n    <ion-list>\r\n      <ion-menu-toggle>\r\n        <ion-item routerLink=\"/dash/history\">История заказов</ion-item>\r\n      </ion-menu-toggle>\r\n      <ion-menu-toggle>\r\n        <ion-item routerLink=\"/dash/addorder\">Добавить заказ</ion-item>\r\n      </ion-menu-toggle>\r\n    </ion-list>\r\n  </ion-content>\r\n</ion-menu>\r\n<ion-router-outlet id=\"main\"></ion-router-outlet>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<ion-menu side=\"start\" menuId=\"first\" contentId=\"main\">\r\n  <ion-header>\r\n    <ion-toolbar color=\"primary\">\r\n      <ion-title>Menu</ion-title>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n  <ion-content>\r\n    <ion-list>\r\n      <ion-menu-toggle>\r\n        <ion-item routerLink=\"/dash/analitics\">Аналитика</ion-item>\r\n      </ion-menu-toggle>\r\n      <ion-menu-toggle>\r\n        <ion-item routerLink=\"/dash/history\">История заказов</ion-item>\r\n      </ion-menu-toggle>\r\n      <ion-menu-toggle>\r\n        <ion-item routerLink=\"/dash/addorder\">Добавить заказ</ion-item>\r\n      </ion-menu-toggle>\r\n      <ion-menu-toggle>\r\n        <ion-item routerLink=\"/dash/categories\">Ассортимент</ion-item>\r\n      </ion-menu-toggle>\r\n    </ion-list>\r\n  </ion-content>\r\n</ion-menu>\r\n<ion-router-outlet id=\"main\"></ion-router-outlet>\r\n");
 
 /***/ }),
 
@@ -43,6 +43,14 @@ const routes = [
             {
                 path: 'addorder',
                 loadChildren: () => __webpack_require__.e(/*! import() | addorder-addorder-module */ "addorder-addorder-module").then(__webpack_require__.bind(null, /*! ../addorder/addorder.module */ "./src/app/addorder/addorder.module.ts")).then(m => m.AddorderPageModule)
+            },
+            {
+                path: 'categories',
+                loadChildren: () => __webpack_require__.e(/*! import() | categories-categories-module */ "categories-categories-module").then(__webpack_require__.bind(null, /*! ../categories/categories.module */ "./src/app/categories/categories.module.ts")).then(m => m.CategoriesPageModule)
+            },
+            {
+                path: 'analitics',
+                loadChildren: () => __webpack_require__.e(/*! import() | analitics-analitics-module */ "analitics-analitics-module").then(__webpack_require__.bind(null, /*! ../analitics/analitics.module */ "./src/app/analitics/analitics.module.ts")).then(m => m.AnaliticsPageModule)
             }
         ]
     },

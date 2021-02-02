@@ -81,25 +81,40 @@
             }
           }
         }, {
-          key: "onKeyboardWillHide",
-          value: function onKeyboardWillHide() {
-            var _this = this;
-
-            setTimeout(function () {
-              return _this.keyboardVisible = false;
-            }, 50);
-          }
-        }, {
-          key: "onKeyboardWillShow",
-          value: function onKeyboardWillShow() {
-            if (this.el.getAttribute('slot') !== 'top') {
-              this.keyboardVisible = true;
-            }
-          }
-        }, {
           key: "componentWillLoad",
           value: function componentWillLoad() {
             this.selectedTabChanged();
+          }
+        }, {
+          key: "connectedCallback",
+          value: function connectedCallback() {
+            var _this = this;
+
+            if (typeof window !== 'undefined') {
+              this.keyboardWillShowHandler = function () {
+                if (_this.el.getAttribute('slot') !== 'top') {
+                  _this.keyboardVisible = true;
+                }
+              };
+
+              this.keyboardWillHideHandler = function () {
+                setTimeout(function () {
+                  return _this.keyboardVisible = false;
+                }, 50);
+              };
+
+              window.addEventListener('keyboardWillShow', this.keyboardWillShowHandler);
+              window.addEventListener('keyboardWillHide', this.keyboardWillHideHandler);
+            }
+          }
+        }, {
+          key: "disconnectedCallback",
+          value: function disconnectedCallback() {
+            if (typeof window !== 'undefined') {
+              window.removeEventListener('keyboardWillShow', this.keyboardWillShowHandler);
+              window.removeEventListener('keyboardWillHide', this.keyboardWillHideHandler);
+              this.keyboardWillShowHandler = this.keyboardWillHideHandler = undefined;
+            }
           }
         }, {
           key: "render",

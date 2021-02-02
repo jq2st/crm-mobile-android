@@ -201,6 +201,28 @@
             return m.MainLayoutPageModule;
           });
         }
+      }, {
+        path: 'reg',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | reg-reg-module */
+          "reg-reg-module").then(__webpack_require__.bind(null,
+          /*! ./reg/reg.module */
+          "./src/app/reg/reg.module.ts")).then(function (m) {
+            return m.RegPageModule;
+          });
+        }
+      }, {
+        path: 'analitics',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | analitics-analitics-module */
+          "analitics-analitics-module").then(__webpack_require__.bind(null,
+          /*! ./analitics/analitics.module */
+          "./src/app/analitics/analitics.module.ts")).then(function (m) {
+            return m.AnaliticsPageModule;
+          });
+        }
       }];
 
       var AppRoutingModule = function AppRoutingModule() {
@@ -293,7 +315,8 @@
       "./src/app/shared/services/auth.service.ts");
 
       var AppComponent = /*#__PURE__*/function () {
-        function AppComponent(authService, platform, splashScreen, statusBar) {
+        function AppComponent( // private storage: Storage,
+        authService, platform, splashScreen, statusBar) {
           _classCallCheck(this, AppComponent);
 
           this.authService = authService;
@@ -310,7 +333,10 @@
 
             if (potentialToken !== null) {
               this.authService.setToken(potentialToken);
-            }
+            } // this.storage.get('auth-token').then((val) => {
+            //   let potentialToken = val
+            // }
+
           }
         }, {
           key: "initializeApp",
@@ -443,6 +469,12 @@
       var _shared_classes_token_interceptor__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./shared/classes/token.interceptor */
       "./src/app/shared/classes/token.interceptor.ts");
+      /* harmony import */
+
+
+      var _ionic_storage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! @ionic/storage */
+      "./node_modules/@ionic/storage/__ivy_ngcc__/fesm2015/ionic-storage.js");
 
       var AppModule = function AppModule() {
         _classCallCheck(this, AppModule);
@@ -451,7 +483,7 @@
       AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
         entryComponents: [],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ReactiveFormsModule"]],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(), _ionic_storage__WEBPACK_IMPORTED_MODULE_12__["IonicStorageModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ReactiveFormsModule"]],
         providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__["SplashScreen"], {
           provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"],
           multi: true,
@@ -607,7 +639,8 @@
               var token = _ref.token;
               localStorage.setItem('auth-token', token);
 
-              _this2.setToken(token);
+              _this2.setToken(token); // storage.set('auth-token', token);
+
             }));
           }
         }, {

@@ -303,6 +303,14 @@ const routes = [
     {
         path: 'dash',
         loadChildren: () => __webpack_require__.e(/*! import() | main-layout-main-layout-module */ "main-layout-main-layout-module").then(__webpack_require__.bind(null, /*! ./main-layout/main-layout.module */ "./src/app/main-layout/main-layout.module.ts")).then(m => m.MainLayoutPageModule)
+    },
+    {
+        path: 'reg',
+        loadChildren: () => __webpack_require__.e(/*! import() | reg-reg-module */ "reg-reg-module").then(__webpack_require__.bind(null, /*! ./reg/reg.module */ "./src/app/reg/reg.module.ts")).then(m => m.RegPageModule)
+    },
+    {
+        path: 'analitics',
+        loadChildren: () => __webpack_require__.e(/*! import() | analitics-analitics-module */ "analitics-analitics-module").then(__webpack_require__.bind(null, /*! ./analitics/analitics.module */ "./src/app/analitics/analitics.module.ts")).then(m => m.AnaliticsPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -356,7 +364,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    constructor(authService, platform, splashScreen, statusBar) {
+    constructor(
+    // private storage: Storage,
+    authService, platform, splashScreen, statusBar) {
         this.authService = authService;
         this.platform = platform;
         this.splashScreen = splashScreen;
@@ -368,6 +378,9 @@ let AppComponent = class AppComponent {
         if (potentialToken !== null) {
             this.authService.setToken(potentialToken);
         }
+        // this.storage.get('auth-token').then((val) => {
+        //   let potentialToken = val
+        // }
     }
     initializeApp() {
         this.platform.ready().then(() => {
@@ -416,6 +429,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 /* harmony import */ var _shared_classes_token_interceptor__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/classes/token.interceptor */ "./src/app/shared/classes/token.interceptor.ts");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/__ivy_ngcc__/fesm2015/ionic-storage.js");
+
 
 
 
@@ -434,7 +449,7 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
         entryComponents: [],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ReactiveFormsModule"]],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"].forRoot(), _ionic_storage__WEBPACK_IMPORTED_MODULE_12__["IonicStorageModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ReactiveFormsModule"]],
         providers: [
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_7__["StatusBar"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_6__["SplashScreen"],
@@ -528,6 +543,7 @@ let AuthService = class AuthService {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(({ token }) => {
             localStorage.setItem('auth-token', token);
             this.setToken(token);
+            // storage.set('auth-token', token);
         }));
     }
     setToken(token) {

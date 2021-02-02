@@ -4,12 +4,12 @@
         "source": "D:\\5em\\integration\\app+api\\native3lab\\backfront-mobile\\android\\app\\src\\main\\res\\drawable-land-xhdpi\\splash.png"
     },
     {
-        "merged": "D:\\5em\\integration\\app+api\\native3lab\\backfront-mobile\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
-        "source": "D:\\5em\\integration\\app+api\\native3lab\\backfront-mobile\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
-    },
-    {
         "merged": "D:\\5em\\integration\\app+api\\native3lab\\backfront-mobile\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "D:\\5em\\integration\\app+api\\native3lab\\backfront-mobile\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\5em\\integration\\app+api\\native3lab\\backfront-mobile\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "D:\\5em\\integration\\app+api\\native3lab\\backfront-mobile\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
     },
     {
         "merged": "D:\\5em\\integration\\app+api\\native3lab\\backfront-mobile\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
